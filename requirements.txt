@@ -1,0 +1,7 @@
+langchain
+sentence-transformers
+faiss-cpu
+pypdf
+mlflow
+tqdm
+numpy
