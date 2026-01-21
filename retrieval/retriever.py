@@ -1,9 +1,14 @@
-from langchain.vectorstores import FAISS
+from langchain_community.vectorstores import FAISS
 from ingestion.embeddings import get_embedding_model
 
 def load_vectorstore(path="data/processed/faiss_index"):
     embeddings = get_embedding_model()
-    return FAISS.load_local(path, embeddings)
+    return FAISS.load_local(
+    path,
+    embeddings,
+    allow_dangerous_deserialization=True
+)
+
 
 def retrieve(query, k=5):
     vectorstore = load_vectorstore()
